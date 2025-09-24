@@ -10,11 +10,17 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      await signup(username, email, password);
-      alert("Signup successful! Please login.");
-      navigate("/login");
+      const response = await signup(username, email, password);
+      alert(response.data); // backend message ("User registered successfully!" or conflict message)
+      if (response.data === "User registered successfully!") {
+        navigate("/login");
+      }
     } catch (error) {
-      alert("Signup failed!");
+      if (error.response && error.response.data) {
+        alert(error.response.data); // show backend error (e.g. "Email already registered!")
+      } else {
+        alert("Signup failed!");
+      }
     }
   };
 
@@ -33,3 +39,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
