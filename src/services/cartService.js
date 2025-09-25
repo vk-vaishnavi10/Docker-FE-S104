@@ -1,15 +1,9 @@
 import axios from "axios";
 
-const API_URL = "http://ec2-51-21-253-106.eu-north-1.compute.amazonaws.com:8081/api/cart";
-
-const API_BASE = "http://ec2-51-21-253-106.eu-north-1.compute.amazonaws.com:8081/api/cart";
+const API_BASE = "http://ec2-13-49-69-195.eu-north-1.compute.amazonaws.com:8081/api/cart";
 
 export const addToCart = async (userId, productId) => {
-  return await axios.post(`${API_BASE}/add`, {
-    userId,
-    productId,
-    quantity: 1
-  });
+  return await axios.post(`${API_BASE}/add`, { userId, productId, quantity: 1 });
 };
 
 export const getCartItems = async (userId) => {
@@ -21,13 +15,13 @@ export const clearCart = async (userId) => {
   return await axios.delete(`${API_BASE}/clear/${userId}`);
 };
 
-// Remove Cart Item
 export const removeCartItem = async (cartItemId) => {
-    try {
-        await axios.delete(`${API_URL}/remove/${cartItemId}`);
-    } catch (error) {
-        console.error("Error removing item from cart", error);
-    }
+  try {
+    await axios.delete(`${API_BASE}/remove/${cartItemId}`);
+  } catch (error) {
+    console.error("Error removing item from cart", error);
+  }
 };
+
 
 
