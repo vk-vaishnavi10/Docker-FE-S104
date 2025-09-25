@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://backend:8081/auth"; // use docker-compose service name
+const API_URL = "http://ec2-51-21-253-106.eu-north-1.compute.amazonaws.com:8081/auth"; // use docker-compose service name
 
 export const login = async (username, password) => {
   const response = await axios.post(`${API_URL}/login`, { username, password });
@@ -15,3 +15,4 @@ export const signup = async (username, email, password) => {
 export const logout = () => {
   localStorage.removeItem("token");
 };
+
