@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://ec2-13-49-69-195.eu-north-1.compute.amazonaws.com:8081/api/products";
+const API_BASE_URL = "http://ec2-13-53-164-149.eu-north-1.compute.amazonaws.com:8081/api/products";
 
 export const getProducts = async (category = "") => {
   try {
@@ -13,7 +13,8 @@ export const getProducts = async (category = "") => {
 };
 
 export const getProductImageUrl = (imagePath) => {
-  return `http://ec2-13-49-69-195.eu-north-1.compute.amazonaws.com:8081/api/products/images/${imagePath}`;
+  return `http://ec2-13-53-164-149.eu-north-1.compute.amazonaws.com:8081/api/products/images/${imagePath}`;
 };
+
 
 
